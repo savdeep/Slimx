@@ -265,10 +265,7 @@ class DB
   {
     $this->pdo = null;
   }
-    public function close()
-  {
-    $this->pdo = null;
-  }
+  
   /*Persistant transactions*/
   public function beginPersitantTransaction()
   {
