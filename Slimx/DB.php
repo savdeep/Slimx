@@ -265,5 +265,22 @@ class DB
   {
     $this->pdo = null;
   }
+    public function close()
+  {
+    $this->pdo = null;
+  }
+  /*Persistant transactions*/
+  public function beginPersitantTransaction()
+  {
+    $this->pdo->setAttribute(\PDO::ATTR_PERSISTENT, true);
+    $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+    $this->pdo->beginTransaction();
+  }
+  public function commitTransaction(){
+    $this->pdo->commit();
+  }
+  public function rollbackTransaction(){
+    $this->pdo->rollback();
+  }
 
 }
